@@ -15,18 +15,22 @@ export function Transactions() {
                     <tbody>
                         <tr>
                             <td width='50%'>Desenvolvimento de site</td>
-                            <PriceHighLight variant="income">
-                                $ 12.000,00
-                            </PriceHighLight>
+                            <td>
+                                <PriceHighLight variant="income">
+                                    $ 12.000,00
+                                </PriceHighLight>
+                            </td>
                             <td>Venda</td>
                             <td>16/06/2025</td>
                         </tr>
 
                         <tr>
                             <td width='50%'>Hamburger</td>
-                            <PriceHighLight variant="outcome">
-                                - R$ 59,00
-                            </PriceHighLight>
+                            <td>
+                                <PriceHighLight variant="outcome">
+                                    - R$ 59,00
+                                </PriceHighLight>
+                            </td>
                             <td>Alimentação</td>
                             <td>17/06/2025</td>
                         </tr>
