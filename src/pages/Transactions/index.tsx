@@ -1,9 +1,33 @@
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { SearchForm } from "./components/SearchForm";
 import { Summary } from "./components/Summary";
 import { PriceHighLight, TransactionsContainer, TransactionsTable } from "./styles";
+import axios from "axios";
+
+interface Transaction {
+    id: number,
+    description: string,
+    type: 'income' | 'outcome',
+    price: number,
+    category: string,
+    createdAt: string
+}
 
 export function Transactions() {
+    const [transactions, setTransactions] = useState<Transaction[]>([])
+
+    async function loadTransactions() {
+        const response = await axios.get('http://localhost:3000/transactions');
+        const data = await response.data;
+
+        setTransactions(data);
+    }
+
+    useEffect(() => {
+        loadTransactions();
+    }, [])
+
     return (
         <div>
             <Header />
@@ -13,34 +37,20 @@ export function Transactions() {
                 <SearchForm />
                 <TransactionsTable>
                     <tbody>
-                        <tr>
-                            <td width='50%'>Desenvolvimento de site</td>
-                            <td>
-                                <PriceHighLight variant="income">
-                                    $ 12.000,00
-                                </PriceHighLight>
-                            </td>
-                            <td>Venda</td>
-                            <td>16/06/2025</td>
-                        </tr>
-
-                        <tr>
-                            <td width='50%'>Hamburger</td>
-                            <td>
-                                <PriceHighLight variant="outcome">
-                                    - R$ 59,00
-                                </PriceHighLight>
-                            </td>
-                            <td>Alimentação</td>
-                            <td>17/06/2025</td>
-                        </tr>
-
-                        <tr>
-                            <td width='50%'>Desenvolvimento de site</td>
-                            <td>R$ 12.000,00</td>
-                            <td>Venda</td>
-                            <td>13/04/2025</td>
-                        </tr>
+                        {transactions.map(transaction => {
+                            return (
+                                <tr key={transaction.id}>
+                                    <td width='50%'>{transaction.description}</td>
+                                    <td>
+                                        <PriceHighLight variant={transaction.type}>
+                                            $ {transaction.price}
+                                        </PriceHighLight>
+                                    </td>
+                                    <td>{transaction.category}</td>
+                                    <td>{transaction.createdAt}</td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </TransactionsTable>
             </TransactionsContainer>
