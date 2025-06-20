@@ -5,7 +5,15 @@
       "description": "Desenvolvimento de sites",
       "type": "income",
       "category": "venda",
-      "price": "14000",
+      "price": 14000,
+      "createdAt": "2025-06-18T23:05:15.026Z"
+    },
+    {
+      "id": "1",
+      "description": "Desenvolvimento de sites",
+      "type": "income",
+      "category": "venda",
+      "price": 12000,
       "createdAt": "2025-06-18T23:05:15.026Z"
     },
     {
@@ -13,7 +21,7 @@
       "description": "Pizza",
       "type": "outcome",
       "category": "alimentação",
-      "price": "10000",
+      "price": 10000,
       "createdAt": "2025-06-18T23:05:15.026Z"
     }
   ]
