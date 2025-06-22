@@ -23,6 +23,22 @@
       "category": "alimentação",
       "price": 2000,
       "createdAt": "2025-06-18T23:05:15.026Z"
+    },
+    {
+      "description": "descrição",
+      "price": 10,
+      "category": "nova",
+      "type": "income",
+      "createdAt": "2025-06-22T19:28:58.765Z",
+      "id": 4
+    },
+    {
+      "description": "Nova",
+      "price": 22,
+      "category": "asd",
+      "type": "income",
+      "createdAt": "2025-06-22T19:37:59.540Z",
+      "id": 5
     }
   ]
 }
